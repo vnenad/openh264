@@ -57,7 +57,10 @@ typedef int32_t intX_t;
 #else
 
 // FIXME:     all singed type should be declared explicit,  for example,  int8_t should be declared as signed char.
+// Exists in libx264 so include only in openh264 standalone build
+#ifdef STAND_ALONE_OPENH264
 typedef signed char      int8_t  ;
+#endif
 typedef unsigned char    uint8_t ;
 typedef short            int16_t ;
 typedef unsigned short   uint16_t;

@@ -89,6 +89,8 @@ typedef enum {
 /**
 * @brief Enumulate the nal unit type
 */
+// Exists in libx264 so include only in openh264 standalone build
+#ifdef STAND_ALONE_OPENH264
 enum ENalUnitType {
   NAL_UNKNOWN     = 0,
   NAL_SLICE       = 1,
@@ -101,16 +103,20 @@ enum ENalUnitType {
   NAL_PPS         = 8
                     ///< ref_idc == 0 for 6,9,10,11,12
 };
+#endif
 
 /**
 * @brief NRI: eNalRefIdc
 */
+// Exists in libx264 so include only in openh264 standalone build
+#ifdef STAND_ALONE_OPENH264
 enum ENalPriority {
   NAL_PRIORITY_DISPOSABLE = 0,
   NAL_PRIORITY_LOW        = 1,
   NAL_PRIORITY_HIGH       = 2,
   NAL_PRIORITY_HIGHEST    = 3
 };
+#endif
 
 #define IS_PARAMETER_SET_NAL(eNalRefIdc, eNalType) \
 ( (eNalRefIdc == NAL_PRIORITY_HIGHEST) && (eNalType == (NAL_SPS|NAL_PPS) || eNalType == NAL_SPS) )
